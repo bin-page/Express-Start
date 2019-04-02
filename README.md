@@ -51,4 +51,10 @@ We suggest that you begin by typing:
 
 Happy hacking!
 
+
+// client/package.json 
+{
+  "proxy": "http://localhost:3333"
+}
+
 ```
