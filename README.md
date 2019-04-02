@@ -2,6 +2,36 @@
 
 ```js
 
+// 트리의 형식으로 디렉토리 내용을 나열
+$ npm install -g tree-cli
+
+$ tree -l
+// C:\Users\noten\...\github\Express-Start\react-backend
+├── app.js
+├── bin
+├── client
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+├── routes
+└── views
+
+$ tree -I node modules
+// C:\Users\noten\...\github\Express-Start\react-backend
+├── app.js
+├── bin
+├── client
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+├── routes
+└── views
+
+directory: 6 file: 3
+
+
 $ npm install express-generator -g
 
 $ express react-backend
@@ -56,5 +86,10 @@ Happy hacking!
 {
   "proxy": "http://localhost:3333"
 }
+
+마지막으로 React App project에서 proxy를 설정합니다. 
+client 폴더에는 package.json 파일이 있는데, 파일에는 사용하는 react, react-dom 등에 대한 dependency가 정의되어 있고, 프로그램이 실행될때 사용되는 script도 정의되어 있습니다. 그러면 scripts 아래에 proxy라는 item을 아래와 같이 추가해줍니다.
+
+proxy를 추가함으로써 React App은 실제 3000번 port에서 작동중임에도 불구하고 호출은 Express backend가 존재하는 3001번 port로 호출하게 됩니다. 이렇게 하는 이유는 cross-origin-resource-sharing 문제를 피하기 위함입니다. CORS는 나중에 다시 포스팅하도록 하겠습니다.
 
 ```
